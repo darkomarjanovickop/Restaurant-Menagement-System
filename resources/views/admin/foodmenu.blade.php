@@ -50,6 +50,7 @@
                         <th style="padding: 30px">Description</th>
                         <th style="padding: 30px">Image</th>
                         <th style="padding: 30px">Action</th>
+                        <th style="padding: 30px">Update</th>
                     </tr>
 
                     @foreach ($data as $data)
@@ -59,6 +60,7 @@
                         <td>{{ $data->description }}</td>
                         <td><img height="200" width="250" src="/foodimage/{{ $data->image }}" alt=""></td>
                         <td><a href="{{ url('/deletemenu', $data->id) }}">Delete</a></td>
+                        <td><a href="{{ url('/updateview', $data->id) }}">Update</a></td>
                     </tr>
                     @endforeach
                 </table>
