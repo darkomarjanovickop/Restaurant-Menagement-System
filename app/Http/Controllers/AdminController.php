@@ -19,9 +19,15 @@ class AdminController extends Controller
         return redirect()->back();
     }
 
+    public function deletemenu($id) {
+        $data=food::find($id);
+        $data->delete();
+        return redirect()->back();
+    }
+
     public function foodmenu() {
-        $data = user::all();
-        return view ("admin.foodmenu");
+        $data = food::all();
+        return view ("admin.foodmenu", compact("data"));
     }
     public function upload(Request $request) {
         $data = new food;
