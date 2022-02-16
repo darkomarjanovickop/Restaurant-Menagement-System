@@ -48,7 +48,6 @@ Route::post("/updatefoodchef/{id}", [AdminController::class, "updatefoodchef"]);
 
 //BASE
 
-
 Route::get("redirects", [HomeController::class, "redirects"]);
 
 
