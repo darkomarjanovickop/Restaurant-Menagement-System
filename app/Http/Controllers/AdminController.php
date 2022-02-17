@@ -135,15 +135,17 @@ class AdminController extends Controller
         return redirect()->back();
     }
 
-    public function updatechef($id) {
+    public function updatechef($id)
+    {
         $data = foodchef::find($id);
         return view("admin.updatechef", compact("data"));
     }
-    public function updatefoodchef(Request $request, $id) {
+    public function updatefoodchef(Request $request, $id)
+    {
         $data = foodchef::find($id);
         $image = $request->image;
 
-        if($image) {
+        if ($image) {
             $imagename = time() . "." . $image->getClientOriginalExtension();
             $request->image->move("chefimage", $imagename);
             $data->image = $imagename;
