@@ -82,8 +82,15 @@ https://templatemo.com/tm-558-klassy-cafe
                                 </ul>
                             </li>
                             <!-- <li class=""><a rel="sponsored" href="https://templatemo.com" target="_blank">External URL</a></li> -->
-                            <li class="scroll-to-section"><a href="#reservation">Contact Us</a></li> 
+                            <li class="scroll-to-section"><a href="#reservation">Contact Us</a></li>
+                            <li class="scroll-to-section"><a href="#">
+                                @auth
+                                Cart <span style="color: orangered; font-weight: 700;">({{ $count }})</span> </a></li>
+                                @endauth
 
+                                @guest
+                                    Cart(0)
+                                @endguest
 
                             <li>
                                 @if (Route::has('login'))
@@ -93,10 +100,8 @@ https://templatemo.com/tm-558-klassy-cafe
 
                                         </x-app-layout> </li>
                                     @else
-                                        <li> <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Log in</a> </li>
-                
-                                        @if (Route::has('register'))
-                                            <li> <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Register</a> </li>
+                                        <li><a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Log in</a> </li>                                        @if (Route::has('register'))
+                                            <li><a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Register</a></li>
                                         @endif
                                     @endauth
                                 </div> 
