@@ -132,12 +132,14 @@ https://templatemo.com/tm-558-klassy-cafe
 
     <div id="top">
 
-    <table align="center" bgcolor="orangered" style="padding-top: 80px; margin-top: 80px; text-align: center;">
+    <table align="center" bgcolor="rgba(250, 90, 90, 0.54)" style="padding-top: 80px; margin-top: 80px; text-align: center;">
         <tr>
             <th style="padding: 30px">Food Name</th>
             <th style="padding: 30px">Price</th>
             <th style="padding: 30px">Quantity</th>
             <th style="padding: 30px">Image</th>
+            <th style="padding: 30px">Action</th>
+
         </tr>
         @foreach ($data as $data)
             <tr>
@@ -147,6 +149,12 @@ https://templatemo.com/tm-558-klassy-cafe
                 <td><img width="200" height="250" src="/foodimage/{{ $data->image }}" alt=""></td>
             </tr>
         @endforeach
+
+            @foreach ($data2 as $data2)
+            <tr style="position: relative; top: -100px; right: -550px">
+            <td><a href="{{ url('/remove',$data2->id) }}" class="btn btn-warning">Remove</a></td>
+            </tr>
+            @endforeach
     </table>
 
     </div>
