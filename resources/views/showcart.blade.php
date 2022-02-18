@@ -177,7 +177,7 @@ https://templatemo.com/tm-558-klassy-cafe
                 <input type="text" name="adress" id="" placeholder="Your Adress">
             </div>
             <div style="padding: 10px">
-                <input class="btn btn-success" type="submit" value="Complete order">
+                <input class="btn btn-outline-primary" type="submit" value="Complete order">
                 <button id="close" class="btn btn-danger">Close</button>
             </div>
         </div>

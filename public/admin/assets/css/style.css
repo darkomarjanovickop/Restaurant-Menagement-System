@@ -9818,7 +9818,7 @@ textarea.is-invalid.tt-hint {
 
 .btn-success {
   color: #000;
-  background-color: #00d25b;
+  background-color: #00d25b !important;
   border-color: #00d25b; }
   .btn-success:hover {
     color: #000;
