@@ -48,6 +48,8 @@ Route::post("/updatefoodchef/{id}", [AdminController::class, "updatefoodchef"]);
 Route::post("/addcart/{id}", [HomeController::class, "addcart"]);
 Route::get("/showcart/{id}", [HomeController::class, "showcart"]);
 Route::get("/remove/{id}", [HomeController::class, "remove"]);
+Route::post("/orderconfirm", [HomeController::class, "orderconfirm"]);
+
 
 //BASE
 

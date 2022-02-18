@@ -142,26 +142,30 @@ https://templatemo.com/tm-558-klassy-cafe
                 <th style="padding: 30px">Quantity</th>
                 <th style="padding: 30px">Image</th>
                 <th style="padding: 30px">Action</th>
-
             </tr>
-            @foreach ($data as $data)
-                <tr>
-                    <td>{{ $data->title }}</td>
-                    <td>{{ $data->price }}$</td>
-                    <td>{{ $data->quantity }}</td>
-                    <td><img width="200" height="250" src="/foodimage/{{ $data->image }}" alt=""></td>
-                </tr>
-            @endforeach
+            <form action="{{ url('orderconfirm') }}" method="POST">
+                @csrf
+                @foreach ($data as $data)
+                    <tr>
+                        <td> <input type="text" name="foodname[]" id="" value="{{ $data->title }}" hidden="">
+                            {{ $data->title }}</td>
+                        <td><input type="number" name="price[]" id="" value="{{ $data->price }}" hidden="">
+                            {{ $data->price }}$</td>
+                        <td><input type="number" name="quantity[]" id="" value="{{ $data->quantity }}" hidden="">
+                            {{ $data->quantity }}</td>
+                        <td><img width="200" height="250" src="/foodimage/{{ $data->image }}" alt=""></td>
+                    </tr>
+                @endforeach
 
-            @foreach ($data2 as $data2)
-                <tr style="position: relative; top: -100px; right: -550px">
-                    <td><a href="{{ url('/remove', $data2->id) }}" class="btn btn-warning">Remove</a></td>
-                </tr>
-            @endforeach
+                @foreach ($data2 as $data2)
+                    <tr style="position: relative; top: -100px; right: -550px">
+                        <td><a href="{{ url('/remove', $data2->id) }}" class="btn btn-warning">Remove</a></td>
+                    </tr>
+                @endforeach
         </table>
 
         <div align="center" style="padding: 10px">
-        <button class="btn btn-primary" id="order">Order now!</button>
+            <button class="btn btn-primary" type="button" id="order">Order now!</button>
         </div>
         <div id="appear" align="center" style="padding: 10px; display: none;">
             <div style="padding: 10px">
@@ -178,22 +182,23 @@ https://templatemo.com/tm-558-klassy-cafe
             </div>
             <div style="padding: 10px">
                 <input class="btn btn-outline-primary" type="submit" value="Complete order">
-                <button id="close" class="btn btn-danger">Close</button>
+                <button id="close" type="button" class="btn btn-danger">Close</button>
             </div>
         </div>
 
     </div>
+    </form>
     <script type="text/javascript">
-    $("#order").click(
-        function() {
-            $("#appear").show()
-        }
-    );
-    $("#close").click(
-        function() {
-            $("#appear").hide()
-        }
-    );
+        $("#order").click(
+            function() {
+                $("#appear").show()
+            }
+        );
+        $("#close").click(
+            function() {
+                $("#appear").hide()
+            }
+        );
     </script>
     <!-- jQuery -->
     <script src="assets/js/jquery-2.1.0.min.js"></script>
