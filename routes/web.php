@@ -49,6 +49,9 @@ Route::post("/addcart/{id}", [HomeController::class, "addcart"]);
 Route::get("/showcart/{id}", [HomeController::class, "showcart"]);
 Route::get("/remove/{id}", [HomeController::class, "remove"]);
 Route::post("/orderconfirm", [HomeController::class, "orderconfirm"]);
+Route::get("/orders", [AdminController::class, "orders"]);
+
+
 
 
 //BASE
